@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather</title>
+    <link rel="stylesheet" href="bootstrap documents/bootstrap.css" />
+    <link rel="stylesheet" href="bootstrap documents/bootstrap-icons.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="py-3 px-5 px-md-1">
+    <header class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col">
+          <img src="assets/images/logo.svg" alt="logo" title="logo" />
+        </div>
+        <div class="col d-flex justify-content-end">
+          <div class="dropdown">
+            <button
+              class="btn dropdown-toggle d-flex align-items-center justify-content-between"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img src="assets/images/icon-units.svg" />
+              <h4>units</h4>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <h1 class="my-5 text-center text-light">How is the sky looking today?</h1>
+
+    <section class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-12 col-md-7 text-end">
+          <img src="assets/images/icon-search.svg">
+          <input
+            type="text"
+            class="text-light p-2 text-light"
+            placeholder="search for a place" 
+            id="searchInput"
+          />
+        </div>
+        <div class="col-12 col-md-5">
+          <button class="btn btn-primary my-3 my-md-1" id="searchBtn">search</button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="container my-5">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="container box_degree pe-5 mb-4">
+            <div class="row text-light">
+              <div
+                class="col-md-6 col-12 d-flex justify-content-center flex-column align-items-center align-items-md-start"
+              >
+                <h3 id="cityName">country name</h3>
+                <p id="dateDay">data and day</p>
+              </div>
+              <div
+                class="col-md-6 col-12 d-flex align-items-center justify-content-center"
+              >
+                <img
+                  src="assets/images/icon-partly-cloudy.png"
+                  alt="conditon"
+                  class="w-25"
+                  id="weatherIcon"
+                />
+                <h1 class="ms-4" id="temp">20</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row d-flex g-3 justify-content-between text-light">
+              <div class="col-md-3 col-6">
+                <p>Feels like</p>
+                <h4 class="degree" style="position: relative" id="feelsLike">18</h4>
+              </div>
+              <div class="col-md-3 col-6">
+                <p>Humidity</p>
+                <h4 id="humidity">46%</h4>
+              </div>
+              <div class="col-md-3 col-6">
+                <p>Wind</p>
+                <h4 id="wind">120Km/s</h4>
+              </div>
+              <div class="col-md-3 col-6">
+                <p>Precipitaion</p>
+                <h4 id="precipitation">0mm</h4>
+              </div>
+            </div>
+          </div>
+
+          <h5 class="text-light mt-5 mb-3">Daily forecast</h5>
+
+          <div class="container before_day mb-5">
+            <div class="row text-light d-flex justify-content-between align-items-center g-3">
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">tue</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">wed</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">thu</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">fri</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">sat</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">sun</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+
+              <div class="col-1 d-flex flex-column px-2 anim">
+                <p class="text-center">mon</p>
+                <img src="assets/images/icon-fog.webp" class="align-self-center" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="degree">12</p>
+                  <p class="degree">20</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <aside class="container">
+            <div class="row py-3 px-2 text-light d-flex g-3">
+              <h5 class="col">Hourly forecast</h5>
+
+              <div class="col-12 px-2 d-flex justify-content-between anim align-items-center">
+                <div class="d-flex">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>1PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between align-items-center px-2 anim">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>2PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between align-items-center px-2 anim">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>3PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between align-items-center px-2 anim">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>4PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between align-items-center px-2 anim">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>5PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between align-items-center px-2 anim">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>6PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between align-items-center px-2 anim">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="assets/images/icon-rain.webp">
+                  <p>7PM</p>
+                </div>
+                <p class="degree">20</p>
+              </div>
+
+            </div>
+          </aside>
+        </div>
+      </div>
+    </nav>
+
+    <script src="bootstrap documents/bootstrap.bundle.js"></script>
+    <script src="dainamic.js"></script>
+  </body>
+</html>

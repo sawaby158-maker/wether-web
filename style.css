@@ -1,0 +1,130 @@
+body {
+  height: fit-content;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, rgb(3, 6, 69), rgb(2, 2, 55));
+  /* overflow-y: auto; */
+}
+/* styles for header */
+header .btn {
+  background-color: rgba(255, 255, 255, 0.246);
+  width: 116%;
+  justify-content: end;
+}
+/*  end */
+
+/* styles for section */
+input,
+nav .col-md-3,aside {
+  background-color: rgba(255, 255, 255, 0.246);
+  border-radius: 10px;
+  border: none;
+}
+@media (max-width: 769px) {
+  section button {
+    width: 100%;
+  }
+  section input {
+    width: 100%;
+  }
+}
+@media (min-width: 770px) {
+  section button {
+    width: 25%;
+  }
+  section input {
+    width: 50%;
+  }
+}
+section .col-12:has(img) {
+  position: relative;
+}
+section img {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+/* end */
+
+/* styles for nav */
+.box_degree {
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  .row {
+    height: 100%;
+    .col {
+      height: 100%;
+    }
+  }
+}
+@media (max-width: 776px) {
+  .box_degree {
+    background-image: url(assets/images/bg-today-small.svg);
+  }
+  nav .col-md-3 {
+    width: 47%;
+  }
+}
+@media (min-width: 777px) {
+  .box_degree {
+    background-image: url(assets/images/bg-today-large.svg);
+  }
+  nav .col-md-3 {
+    width: 22%;
+  }
+}
+nav h1 {
+  font-size: 5.5em;
+  font-style: italic;
+  font-family: sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+nav h1::after,
+.degree::after {
+  content: "°";
+  position: absolute;
+}
+nav .col-md-3,.anim {
+  transition: all 0.5s linear;
+}
+nav .col-md-3:hover,.anim:hover {
+  scale: 1.1;
+}
+.before_day .col-1 {
+  height: 130px;
+  background-color: rgba(255, 255, 255, 0.246);
+  border-radius: 10px;
+}
+@media (min-width: 992px) {
+  .before_day .col-1 {
+    width: 11.5%;
+  }
+}
+@media (max-width: 991px) {
+  .before_day .col-1 {
+    width: 27.5%;
+  }
+}
+.before_day img {
+  width: 50px;
+}
+/* end */
+
+/* styles for aside */
+aside{
+  height: fit-content;
+}
+aside div.col-12{
+  background-color: rgba(255, 255, 255, 0.311);
+  border-radius: 5px;
+  height: 65px;
+}
+aside img{
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 5px;
+}
+/* end */
