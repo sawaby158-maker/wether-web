@@ -14,7 +14,8 @@ header .btn {
 
 /* styles for section */
 input,
-nav .col-md-3,aside {
+nav .col-md-3,
+aside {
   background-color: rgba(255, 255, 255, 0.246);
   border-radius: 10px;
   border: none;
@@ -86,10 +87,12 @@ nav h1::after,
   content: "°";
   position: absolute;
 }
-nav .col-md-3,.anim {
+nav .col-md-3,
+.anim {
   transition: all 0.5s linear;
 }
-nav .col-md-3:hover,.anim:hover {
+nav .col-md-3:hover,
+.anim:hover {
   scale: 1.1;
 }
 .before_day .col-1 {
@@ -113,18 +116,27 @@ nav .col-md-3:hover,.anim:hover {
 /* end */
 
 /* styles for aside */
-aside{
+aside {
   height: fit-content;
 }
-aside div.col-12{
+aside div.col-12 {
   background-color: rgba(255, 255, 255, 0.311);
   border-radius: 5px;
   height: 65px;
 }
-aside img{
+aside img {
   width: 40px;
   height: 40px;
   position: relative;
   bottom: 5px;
+}
+@media (min-width: 10px) and (max-width: 600px) {
+  * {
+    font-size: x-small;
+    height: fit-content;
+  }
+  .dropdown {
+    display: none;
+  }
 }
 /* end */
