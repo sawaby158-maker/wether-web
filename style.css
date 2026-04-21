@@ -11,7 +11,6 @@ header .btn {
   justify-content: end;
 }
 /*  end */
-
 /* styles for section */
 input,
 nav .col-md-3,
@@ -137,6 +136,10 @@ aside img {
   }
   .dropdown {
     display: none;
+  }
+  section img{
+    position: absolute;
+    top: 4px;
   }
 }
 /* end */
