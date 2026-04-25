@@ -20,10 +20,7 @@ aside {
   border: none;
 }
 @media (max-width: 769px) {
-  section button {
-    width: 100%;
-  }
-  section input {
+  section input,section button,section .cities {
     width: 100%;
   }
 }
@@ -34,6 +31,10 @@ aside {
   section input {
     width: 50%;
   }
+   section .cities{
+    width: 20%;
+    margin-left: 29%;
+   }
 }
 section .col-12:has(img) {
   position: relative;
@@ -63,7 +64,7 @@ section img {
     background-image: url(assets/images/bg-today-small.svg);
   }
   nav .col-md-3 {
-    width: 47%;
+    width:47%;
   }
 }
 @media (min-width: 777px) {

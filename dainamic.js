@@ -2,7 +2,7 @@
 //  input + button
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
-
+const boxCities = document.querySelector(".cities");
 // البيانات الأساسية
 const cityName = document.getElementById("cityName");
 const dateDay = document.getElementById("dateDay");
@@ -75,65 +75,118 @@ https://api.weatherapi.com/v1/forecast.json?key=398c1f31258f4aa6a3e00526262104&q
     // end
   } catch (err) {
     console.log(err);
-    load()
+    load();
   }
 };
 // end
 // search for city
-searchBtn.addEventListener('click',()=>{
-    searchInput.value !==''?change_data(searchInput.value):searchInput.focus()
-    searchInput.value=''
-})
-window.addEventListener('keydown',(e)=>{
-    if(e.key==="Enter"){
-        searchInput.value!==''?change_data(searchInput.value):searchInput.focus()
-        searchInput.value=''
-    }
-})
+searchBtn.addEventListener("click", () => {
+  searchInput.value !== ""
+    ? change_data(searchInput.value)
+    : searchInput.focus();
+  searchInput.value = "";
+});
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchInput.value !== ""
+      ? change_data(searchInput.value)
+      : searchInput.focus();
+    searchInput.value = "";
+  }
+});
 //end
 // function to get location by ip
 async function getLocationByIP() {
   const res = await fetch("https://ipapi.co/json/");
   const data = await res.json();
-  console.log(data.country_capital)
+  console.log(data.country_capital);
   change_data(data.country_capital);
 }
 
 // getLocationByIP();
 //end
 // function to load
-function load(){
-      // main data
-    cityName.textContent =''
-    dateDay.textContent = ''
-    weatherIcon.src = 'assets/images/icon-loading.svg'
-    temp.textContent =''
-    //end
-    // second data
-    feelsLike.textContent ="____"
-    humidity.textContent ="____"
-    wind.textContent ="____"
-    precipitation.textContent = "____"
-    //end
-    // day card
-    daysCards.forEach((day, index) => {
-      day.children[0].textContent = '';
-      day.children[1].src =''
-      day.children[2].children[0].textContent =
-        ''
-      day.children[2].children[1].textContent =
-        ''
-    });
-    //end
-    // hours for day
-    hourlyCards.forEach((hour) => {
-      const counter = parseInt(hour.children[0].children[1].textContent);
-      hour.children[0].children[0].src =
-        ''
-      hour.children[1].textContent =
-      ''
-    });
+function load() {
+  // main data
+  cityName.textContent = "";
+  dateDay.textContent = "";
+  weatherIcon.src = "assets/images/icon-loading.svg";
+  temp.textContent = "";
+  //end
+  // second data
+  feelsLike.textContent = "____";
+  humidity.textContent = "____";
+  wind.textContent = "____";
+  precipitation.textContent = "____";
+  //end
+  // day card
+  daysCards.forEach((day, index) => {
+    day.children[0].textContent = "";
+    day.children[1].src = "";
+    day.children[2].children[0].textContent = "";
+    day.children[2].children[1].textContent = "";
+  });
+  //end
+  // hours for day
+  hourlyCards.forEach((hour) => {
+    const counter = parseInt(hour.children[0].children[1].textContent);
+    hour.children[0].children[0].src = "";
+    hour.children[1].textContent = "";
+  });
 }
-load()
-change_data('cairo')
+load();
+change_data("cairo");
 //end
+// future to show choose to select city for search
+(function () {
+  let block = true; // to block the function if there is an error
+  // get cities
+  async function getcities() {
+    try {
+      const res = await fetch(
+        "https://restcountries.com/v3.1/all?fields=name,capital,currencies",
+        { method: "GET" },
+      );
+      const data = await res.json();
+      const cities = data
+        .map((country) => {
+          return country.capital[0] !== undefined ? country.capital[0] : null;
+        })
+        .filter((city) => city !== null);
+      return cities;
+    } catch (err) {
+      block = false;
+      console.log(err);
+    }
+  }
+  // end
+  // show cities
+  async function showcities() {
+    if(block){
+    const city = await getcities();
+    city.forEach((x) => {
+      const btn = document.createElement("button");
+      btn.value = x;
+      btn.textContent = x;
+      btn.classList.add("w-100", "mb-1", "btn", "btn-outline-primary","d-none");
+      boxCities.append(btn)
+    });
+  }
+    searchInput.addEventListener("input", () => {
+      boxCities.childNodes.forEach(btn=>{
+        if(btn.value.toLowerCase().includes(searchInput.value.toLowerCase())&&searchInput.value!==''){
+          btn.classList.remove('d-none')
+        }
+        else{
+          btn.classList.add('d-none')
+        }
+      })
+  })
+  boxCities.addEventListener('click',(e)=>{
+    if(e.target.tagName==='BUTTON'){
+      searchInput.value = e.target.value;
+    }
+  })
+}
+  showcities();
+})();
