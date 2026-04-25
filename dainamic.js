@@ -36,9 +36,7 @@ const change_data = async (city_name) => {
 https://api.weatherapi.com/v1/forecast.json?key=398c1f31258f4aa6a3e00526262104&q=${city_name}&days=7&aqi=yes&alerts=yes`,
       { method: "GET" },
     );
-    console.log(recive)
     const data = await recive.json();
-    console.log(data)
     // main data
     cityName.textContent = data.location["name"];
     dateDay.textContent = data.location["localtime"];

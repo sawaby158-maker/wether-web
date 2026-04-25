@@ -141,5 +141,11 @@ aside img {
     position: absolute;
     top: 4px;
   }
+  .anim{
+    font-weight: 900;
+  }
+  .before_day .col-1 ,.hours-day .col-12{
+    height: fit-content;
+  }
 }
 /* end */
