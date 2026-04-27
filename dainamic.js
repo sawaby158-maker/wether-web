@@ -148,11 +148,14 @@ change_data("cairo");
         { method: "GET" },
       );
       const data = await res.json();
-      const cities = data
+      const response=await fetch('country.json',{method:'GET'})
+      const countries=await response.json()
+      let cities = data
         .map((country) => {
           return country.capital[0] !== undefined ? country.capital[0] : null;
         })
         .filter((city) => city !== null);
+        cities.push(...countries)
       return cities;
     } catch (err) {
       block = false;
@@ -168,7 +171,7 @@ change_data("cairo");
       const btn = document.createElement("button");
       btn.value = x;
       btn.textContent = x;
-      btn.classList.add("w-100", "mb-1", "btn", "btn-outline-primary","d-none");
+      btn.classList.add("w-100", "mb-1", "btn", "btn-primary","d-none");
       boxCities.append(btn)
     });
   }
@@ -180,11 +183,19 @@ change_data("cairo");
         else{
           btn.classList.add('d-none')
         }
+        if(searchInput.value!==''&&[...boxCities.childNodes].some(btn=>btn.classList.contains('d-none')===false)){
+          boxCities.classList.remove('d-none');
+        }
+        else{
+          boxCities.classList.add('d-none');
+        }
       })
   })
   boxCities.addEventListener('click',(e)=>{
     if(e.target.tagName==='BUTTON'){
       searchInput.value = e.target.value;
+      searchBtn.click();
+      boxCities.classList.add('d-none');
     }
   })
 }

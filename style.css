@@ -12,6 +12,9 @@ header .btn {
 }
 /*  end */
 /* styles for section */
+section{
+  position: relative;
+}
 input,
 nav .col-md-3,
 aside {
@@ -150,3 +153,6 @@ aside img {
   }
 }
 /* end */
+.cities{
+  position: absolute;
+}
