@@ -33,10 +33,11 @@ const change_data = async (city_name) => {
     const recive = await fetch(
       `
 
-https://api.weatherapi.com/v1/forecast.json?key=398c1f31258f4aa6a3e00526262104&q=${city_name}&days=7&aqi=yes&alerts=yes`,
+https://api.weatherapi.com/v1/forecast.json?key=e6048f4a915a4fa78b365105261505&q=${city_name}&days=7&aqi=yes&alerts=yes`,
       { method: "GET" },
     );
     const data = await recive.json();
+    console.log(data)
     // main data
     cityName.textContent = data.location["name"];
     dateDay.textContent = data.location["localtime"];
