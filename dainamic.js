@@ -52,6 +52,7 @@ https://api.weatherapi.com/v1/forecast.json?key=e6048f4a915a4fa78b365105261505&q
     //end
     // day card
     daysCards.forEach((day, index) => {
+      if(data.forecast["forecastday"][index].date){
       const data_day = new Date(data.forecast["forecastday"][index].date);
       const data_to_day = data_day.toLocaleDateString("en-US", {
         weekday: "short",
@@ -63,6 +64,7 @@ https://api.weatherapi.com/v1/forecast.json?key=e6048f4a915a4fa78b365105261505&q
         data.forecast["forecastday"][index].day["mintemp_c"];
       day.children[2].children[1].textContent =
         data.forecast["forecastday"][index].day["maxtemp_c"];
+    }
     });
     //end
     // hours for day
